@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: rgb(0, 183, 0);
+        }
+
+        #div-bg {
+            width: 50%;
+            background: white;
+        }
+
+        .div-test {
+            background-color: white;
+            padding: 20px;
+            width: 20%;
+            border: 5px dashed black;
+            float: left;
+        }
+
+        #div1 {
+            background-clip: border-box;
+        }
+
+        #div2 {
+            background-clip: padding-box;
+        }
+
+        #div3 {
+            background-clip: content-box;
+        }
+
+        .clearfloat {
+            clear: both;
+        }
+
+        #bg-img {
+            width: 70%;
+            height: 1600px;
+            border: 4px solid red;
+
+            /* 기본적으로 배경에 비해 이미지가 적으면 반복(repeated) */
+            background-image: url('sample/image/flower1.PNG');
+            background-repeat: no-repeat;
+
+            background-size: cover;
+
+            /* 이미지가 크롭되지 않는 선에서 최선의 방법으로 표시  */
+            background-size: contain;
+
+            background-attachment: fixed;
+            background-attachment: scroll;
+
+            background-size: auto;
+
+            background-position: 50% 50%;
+            background-position: 30px 50px;
+            background-position: right;
+        }
+
+
+
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <h1>배경색과 배경 이미지</h1>
+    <h3>div 배경 테스트</h3>
+    <pre>div 영역을 설정하는 경우 배경색을 지정하기 위해서는 div에 배경 색을 별도로 지정해야 한다.</pre>
+    <div id="div-bg">
+        Quisque volutpat, nunc non convallis volutpat, justo leo mollis diam, ut consequat leo erat et risus. Pellentesque dignissim est non velit consectetur, sed vulputate mauris tristique. Sed lobortis lobortis risus, et placerat tellus fringilla vitae. Praesent ut vulputate ipsum. Praesent enim sem, rutrum ac dapibus ac, mollis sed dui. Duis feugiat orci nec pellentesque porta. Donec sit amet lorem non mauris pulvinar imperdiet in non turpis. Ut eget diam ac ex iaculis volutpat.
+
+Ut in ex mollis, auctor orci quis, placerat tortor. Nullam nec dui sed ante tempus rutrum. Cras sit amet lacinia leo. Duis ac velit nisi. Phasellus sapien urna, molestie et enim ut, ullamcorper cursus diam. Integer dignissim magna ut diam sollicitudin, eleifend maximus ligula egestas. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed iaculis erat non pellentesque aliquam. Morbi viverra sapien nec risus venenatis gravida. Fusce laoreet arcu ac ante interdum, eget imperdiet arcu luctus. Sed sapien ex, porttitor in felis eget, aliquam ullamcorper risus. In hac habitasse platea dictumst. Nulla vitae consequat diam. Nunc elementum sed tellus vitae fringilla. Nunc justo eros, imperdiet eget aliquam vel, hendrerit eu ex.
+
+Nunc at porta nibh, sit amet congue erat. Aenean faucibus dolor vel ultricies varius. Sed et lectus sit amet augue facilisis ornare sed vitae turpis. Integer elit magna, rutrum vel leo id, tincidunt ultricies massa. Vestibulum lobortis nisi non sem lacinia, a sollicitudin nisl egestas. Curabitur in diam urna. Nunc mi erat, sollicitudin in egestas at, aliquam at risus. Nam sapien nulla, pretium vel leo et, egestas rutrum arcu.
+    </div>
+
+    <h3>배경 적용 범위 조정: 엘리먼트의 구성 요소(padding, border, margin)</h3>
+    <pre>div 영역의 배경 적용 범위를 지정할 때 background-clip 속성 사용</pre>
+    <div class="div-test" id="div1">
+        Quisque volutpat, nunc non convallis volutpat, justo leo mollis diam, ut consequat leo erat et risus. Pellentesque dignissim est non velit consectetur, sed vulputate mauris tristique. Sed lobortis lobortis risus, et placerat tellus fringilla vitae. Praesent ut vulputate ipsum. Praesent enim sem, rutrum ac dapibus ac, mollis sed dui. Duis feugiat orci nec pellentesque porta. Donec sit amet lorem non mauris pulvinar imperdiet in non turpis. Ut eget diam ac ex iaculis volutpat.
+    </div>
+    <div class="div-test" id="div2">
+        Quisque volutpat, nunc non convallis volutpat, justo leo mollis diam, ut consequat leo erat et risus. Pellentesque dignissim est non velit consectetur, sed vulputate mauris tristique. Sed lobortis lobortis risus, et placerat tellus fringilla vitae. Praesent ut vulputate ipsum. Praesent enim sem, rutrum ac dapibus ac, mollis sed dui. Duis feugiat orci nec pellentesque porta. Donec sit amet lorem non mauris pulvinar imperdiet in non turpis. Ut eget diam ac ex iaculis volutpat.
+    </div>
+    <div class="div-test" id="div3">
+        Quisque volutpat, nunc non convallis volutpat, justo leo mollis diam, ut consequat leo erat et risus. Pellentesque dignissim est non velit consectetur, sed vulputate mauris tristique. Sed lobortis lobortis risus, et placerat tellus fringilla vitae. Praesent ut vulputate ipsum. Praesent enim sem, rutrum ac dapibus ac, mollis sed dui. Duis feugiat orci nec pellentesque porta. Donec sit amet lorem non mauris pulvinar imperdiet in non turpis. Ut eget diam ac ex iaculis volutpat.
+    </div>
+
+    <!-- 
+        float을 통해 블럭 요소(div 태그 같은)를 인라인 요소처럼 배치하였을 때 이후 다시 원상복귀를 위해서는 clear의 개념이 필요
+        태그의 attribute로 적용(clear="both")할 수도 있지만 css로 만들어두고 class 명을 통해 float를 clear 하는 것 권장
+     -->
+    <!-- <br clear="both"> -->
+    <p class="clearfloat">asdfasdfafdsadfafd</p>
+
+    <div>
+        Quisque volutpat, nunc non convallis volutpat, justo leo mollis diam, ut consequat leo erat et risus. Pellentesque dignissim est non velit consectetur, sed vulputate mauris tristique. Sed lobortis lobortis risus, et placerat tellus fringilla vitae. Praesent ut vulputate ipsum. Praesent enim sem, rutrum ac dapibus ac, mollis sed dui. Duis feugiat orci nec pellentesque porta. Donec sit amet lorem non mauris pulvinar imperdiet in non turpis. Ut eget diam ac ex iaculis volutpat
+    </div>
+
+    <h3>배경 이미지 테스트</h3>
+    <pre>background-image 속성을 이용하여 배경 사진을 넣을 수 있다. 사진의 크기에 따라 이미지 사이즈를 고민해야 한다.</pre>
+    <div id="bg-img"></div>
+
+</body>
+</html>
